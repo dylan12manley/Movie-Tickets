@@ -5,6 +5,14 @@ function Ticket (age, movie, time, cost) {
   this.time = time, //
   this.cost = cost // a ratio depending on how old the movie is
 }
+
+// function timeTranslator(time) {
+//   if(time === 7){
+//     return time = 'atinee';
+//   } else {
+//     return time = 'Evening'
+//   }
+// }
 function calcCost (time, age, cost){
   if ((time === 7) && (age <= 13)) {
     console.log("youngens matinee");
@@ -34,8 +42,9 @@ $(document).ready(function(){
     var movieTimeInput = parseInt($("input[name='Radio']:checked").val());
     var movieInput = $("input[name='movie']:checked").val();
     var price = 10;
+    var priceTicket = calcCost (movieTimeInput, userAgeInput, price);
+    var myTicket = new Ticket(userAgeInput, movieInput, movieTimeInput, priceTicket);
     console.log(movieInput);
-    var myTicket = new Ticket(userAgeInput, movieInput, movieTimeInput, price);
     console.log(myTicket);
     console.log(calcCost(movieTimeInput, userAgeInput, price));
 
