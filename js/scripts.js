@@ -6,36 +6,13 @@ function Ticket (age, movie, time, cost) {
   this.time = time,
   this.cost = cost  //a ratio depending on how old the movie is
 }
-Ticket.prototype.timeTranslator = function(time) {
+Ticket.prototype.timeTranslator = function() {
   if(this.time === 7){
     return this.time = 'Matinee';
   } else {
     return this.time = 'Evening'
   }
 }
-
-// Ticket.prototype.calcCost = function(){
-//   console.log(this.time);
-//   if ((this.time === 7) && (this.age <= 13)) {
-//     console.log("youngens matinee");
-//     return this.cost - 5
-//   } else if ((this.time === 7) && (this.age >= 65)) {
-//     console.log("oldies matinee");
-//     return this.cost - 6
-//   } else if (this.age <=13) {
-//     console.log("youngens")
-//     return this.cost -2
-//   } else if (this.age >= 65) {
-//     console.log("oldies")
-//     return this.cost - 3
-//   } else if (this.time === 7) {
-//     console.log("matinee");
-//     return this.cost -3
-//   } else {
-//      this.cost
-//   }
-//   return this.cost
-// }
 
 function calcCost (time, age, cost){
     if ((time === 7) && (age <= 13)) {
@@ -67,8 +44,9 @@ $(document).ready(function(){
     var movieInput = $("input[name='movie']:checked").val();
     var price = 10;
     var priceTicket = calcCost(movieTimeInput, userAgeInput, price);
+    console.log(myTicket);
     var myTicket = new Ticket(userAgeInput, movieInput, movieTimeInput, priceTicket);
-    // var translatedTime = myTicket.timeTranslator(movieTimeInput)
+    var translatedTime = myTicket.timeTranslator()
     console.log(priceTicket);
     // console.log(translatedTime);
     console.log(movieInput);
